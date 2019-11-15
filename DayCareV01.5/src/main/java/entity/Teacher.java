@@ -6,6 +6,7 @@ public class Teacher {
 	private int capacity;
 	private int grade;
 	private int classRoom;
+	private int maxCapacity;
 	
 	public int getTeacherId() {
 		return teacherId;
@@ -21,7 +22,12 @@ public class Teacher {
 	}
 	
 	
-	
+	public int getMaxCapacity() {
+		return maxCapacity;
+	}
+	public void setMaxCapacity(int maxCapacity) {
+		this.maxCapacity = maxCapacity;
+	}
 	public int getCapacity() {
 		return capacity;
 	}
@@ -43,8 +49,12 @@ public class Teacher {
 	@Override
 	public String toString() {
 		return "Teacher [teacherId=" + teacherId + ", name=" + name + ", capacity=" + capacity + ", grade=" + grade
-				+ ", classRoom=" + classRoom + "]";
+				+ ", classRoom=" + classRoom + ", maxCapacity=" + maxCapacity + "]";
 	}
+	
+	
+	
+
 	
 	
 	

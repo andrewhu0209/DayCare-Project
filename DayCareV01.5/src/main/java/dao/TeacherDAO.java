@@ -33,6 +33,7 @@ public class TeacherDAO {
 				teacher.setCapacity(rs.getInt("capacity"));
 				teacher.setGrade(rs.getInt("grade"));
 				teacher.setClassRoom(rs.getInt("classRoom"));
+				teacher.setMaxCapacity(rs.getInt("maxCapacity"));
 				
 				teachers.add(teacher);
 			}
