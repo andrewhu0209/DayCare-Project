@@ -43,44 +43,81 @@
 				<div id="content">
 					<p id="whereami">
 					</p>
-					<h1>
-						Teacher List
+					<h1 style="color:red;">
+						Alarm !!
 					</h1>
 					<table class="table">
 						<tr class="table_header">
 							<td>
+								Student ID
+							</td>
+							<td>
+								Name
+							</td>
+							<td>
+								Age
+							</td>
+							<td>
+								Parent's Name
+							</td>
+							<td>
+								Address
+							</td>
+							<td>
+								Phone Number
+							</td>
+							<td>
 								Teacher ID
 							</td>
 							<td>
-								Teacher Name
+								Enrollment Day
 							</td>
 							<td>
-								Class Room
+								Hib Status
 							</td>
-
 						</tr>
 						<%
-							List<Teacher> teachers = (List<Teacher>) request.getAttribute("teachers");
-							for(int i=0;i<teachers.size();i++){
-								Teacher teacher = teachers.get(i);
+							List<Student> students = (List<Student>) request.getAttribute("alarmStudents");
+							Integer teacherId = (Integer)request.getAttribute("teacherId");
+							for(int i=0;i<students.size();i++){
+								Student student = students.get(i);
 								%>
 						<tr class="row<%=i % 2 + 1%>">
 							<td>
-								<%=teacher.getTeacherId()%>
+								<%=student.getStudentId()%>
 							</td>
 							<td>
-								<a href="<%=request.getContextPath()%>/studentList.do?teacherId=<%=teacher.getTeacherId()%>"> <%=teacher.getName()%> </a>
-								
-								
+								<%=student.getName()%>
+							</td>
+							<td>
+								<%=student.getAge()%>
+							</td>
+							<td>
+								<%=student.getParentsName()%>
+							</td>
+							<td>
+								<%=student.getAddress()%>
+							</td>
+							<td>
+								<%=student.getPhone()%>
+							</td>
+							<td>
+								<%=student.getTeacherId()%>
+							</td>
+							<td>
+								<%=student.getEnrollDay()%>
+							</td>
+							<td style="color:red;">
+								<%=student.getHib6()%>
 							</td>
 						</tr>
 								<%
 							}
 						%>
-
+					
 					</table>
 					<p>
-						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
+						<input type="button" class="button" value="Student List" onclick="location='<%=request.getContextPath()%>/listStudent?teacherId=<%=teacherId%>'"/>
 					</p>
 				</div>
 			</div>

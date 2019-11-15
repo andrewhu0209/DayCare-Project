@@ -18,6 +18,7 @@
 		//沒有必須向下執行
 		return;
 	}
+	
 	%>
 		<div id="wrap">
 			<div id="top_content"> 
@@ -44,43 +45,92 @@
 					<p id="whereami">
 					</p>
 					<h1>
-						Teacher List
+						Student Vaccine Infomation
 					</h1>
 					<table class="table">
 						<tr class="table_header">
 							<td>
-								Teacher ID
+								Student ID
 							</td>
 							<td>
-								Teacher Name
+								Student Name
 							</td>
 							<td>
-								Class Room
+								Student Age
 							</td>
-
+							<td>
+								Hib6
+							</td>
+							<td>
+								Dtap6
+							</td>
+							<td>
+								Dtap15
+							</td>
+							<td>
+								Polio6
+							</td>
+							<td>
+								Polio15
+							</td>
+							<td>
+								Hepb6
+							</td>
+							<td>
+								Mmr12
+							</td>
+							<td>
+								Var12
+							</td>
 						</tr>
 						<%
-							List<Teacher> teachers = (List<Teacher>) request.getAttribute("teachers");
-							for(int i=0;i<teachers.size();i++){
-								Teacher teacher = teachers.get(i);
+							List<Student> students = (List<Student>) request.getAttribute("students");
+							for(int i=0;i<students.size();i++){
+								Student student = students.get(i);
 								%>
 						<tr class="row<%=i % 2 + 1%>">
 							<td>
-								<%=teacher.getTeacherId()%>
+								<%=student.getStudentId()%>
 							</td>
 							<td>
-								<a href="<%=request.getContextPath()%>/studentList.do?teacherId=<%=teacher.getTeacherId()%>"> <%=teacher.getName()%> </a>
-								
-								
+								<%=student.getName()%>
+							</td>
+							<td>
+								<%=student.getAge()%>
+							</td>
+							<td>
+								<%=student.getHib6()%>
+							</td>
+							<td>
+								<%=student.getDtap6()%>
+							</td>
+							<td>
+								<%=student.getDtap15()%>
+							</td>
+							<td>
+								<%=student.getPolio6()%>
+							</td>
+							<td>
+								<%=student.getPolio15()%>
+							</td>
+							<td>
+								<%=student.getHepb6()%>
+							</td>
+							<td>
+								<%=student.getMmr12()%>
+							</td>
+							<td>
+								<%=student.getVar12()%>
 							</td>
 						</tr>
 								<%
 							}
 						%>
-
+					
 					</table>
 					<p>
-						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
+						<%Integer teacherId = (Integer)request.getAttribute("teacherId"); %>
+						<input type="button" class="button" value="Back" onclick="location='<%=request.getContextPath()%>/studentList.do?teacherId=<%=teacherId%>'"/>
 					</p>
 				</div>
 			</div>

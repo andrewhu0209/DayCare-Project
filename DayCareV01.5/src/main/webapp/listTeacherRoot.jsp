@@ -9,16 +9,6 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 	<body>
-	<%
-	//進行session驗證。
-	Object obj = session.getAttribute("teacherId");
-	if(obj == null){
-		//沒有登入，重定向到登入頁面
-		response.sendRedirect("login.jsp");
-		//沒有必須向下執行
-		return;
-	}
-	%>
 		<div id="wrap">
 			<div id="top_content"> 
 				<div id="header">
@@ -54,10 +44,6 @@
 							<td>
 								Teacher Name
 							</td>
-							<td>
-								Class Room
-							</td>
-
 						</tr>
 						<%
 							List<Teacher> teachers = (List<Teacher>) request.getAttribute("teachers");
@@ -77,7 +63,11 @@
 								<%
 							}
 						%>
-
+						<tr class="table_header">
+							<td  colspan="2">
+								<a href="<%=request.getContextPath()%>/studentList.do?teacherId=0"> All Student Data </a>			
+							</td>
+					</tr>
 					</table>
 					<p>
 						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>

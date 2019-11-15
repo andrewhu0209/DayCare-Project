@@ -44,43 +44,82 @@
 					<p id="whereami">
 					</p>
 					<h1>
-						Teacher List
+						Student List
 					</h1>
 					<table class="table">
 						<tr class="table_header">
 							<td>
+								Student ID
+							</td>
+							<td>
+								Name
+							</td>
+							<td>
+								Age
+							</td>
+							<td>
+								Parent's Name
+							</td>
+							<td>
+								Address
+							</td>
+							<td>
+								Phone Number
+							</td>
+							<td>
 								Teacher ID
 							</td>
 							<td>
-								Teacher Name
+								Enrollment Day
 							</td>
 							<td>
-								Class Room
+								Hib Status
 							</td>
-
 						</tr>
 						<%
-							List<Teacher> teachers = (List<Teacher>) request.getAttribute("teachers");
-							for(int i=0;i<teachers.size();i++){
-								Teacher teacher = teachers.get(i);
+							List<Student> students = (List<Student>) request.getAttribute("students");
+							for(int i=0;i<students.size();i++){
+								Student student = students.get(i);
 								%>
 						<tr class="row<%=i % 2 + 1%>">
 							<td>
-								<%=teacher.getTeacherId()%>
+								<%=student.getStudentId()%>
 							</td>
 							<td>
-								<a href="<%=request.getContextPath()%>/studentList.do?teacherId=<%=teacher.getTeacherId()%>"> <%=teacher.getName()%> </a>
-								
-								
+								<%=student.getName()%>
+							</td>
+							<td>
+								<%=student.getAge()%>
+							</td>
+							<td>
+								<%=student.getParentsName()%>
+							</td>
+							<td>
+								<%=student.getAddress()%>
+							</td>
+							<td>
+								<%=student.getPhone()%>
+							</td>
+							<td>
+								<%=student.getTeacherId()%>
+							</td>
+							<td>
+								<%=student.getEnrollDay()%>
+							</td>
+							<td>
+								<%=student.getHib6()%>
 							</td>
 						</tr>
 								<%
 							}
 						%>
-
+					
 					</table>
 					<p>
-						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
+						<%Integer teacherId = (Integer)request.getAttribute("teacherId"); %>
+						<input type="button" class="button" value="Back" onclick="location='<%=request.getContextPath()%>/teacherList.do'"/>
+						<input style="color:red;" type="button" class="button" value="Student didn't get Vaccine" onclick="location='<%=request.getContextPath()%>/immuStudentNotYetList.do?teacherId=<%=teacherId%>'"/>
+						<input type="button" class="button" value="Student Vaccine Infomation" onclick="location='<%=request.getContextPath()%>/immuStudentList.do?teacherId=<%=teacherId%>'"/>
 					</p>
 				</div>
 			</div>
