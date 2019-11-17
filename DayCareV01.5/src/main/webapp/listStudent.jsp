@@ -72,9 +72,7 @@
 							<td>
 								Enrollment Day
 							</td>
-							<td>
-								Hib Status
-							</td>
+							
 						</tr>
 						<%
 							List<Student> students = (List<Student>) request.getAttribute("students");
@@ -106,9 +104,7 @@
 							<td>
 								<%=student.getEnrollDay()%>
 							</td>
-							<td>
-								<%=student.getHib6()%>
-							</td>
+							
 						</tr>
 								<%
 							}
@@ -120,6 +116,7 @@
 						<input type="button" class="button" value="Back" onclick="location='<%=request.getContextPath()%>/teacherList.do'"/>
 						<input style="color:red;" type="button" class="button" value="Student didn't get Vaccine" onclick="location='<%=request.getContextPath()%>/immuStudentNotYetList.do?teacherId=<%=teacherId%>'"/>
 						<input type="button" class="button" value="Student Vaccine Infomation" onclick="location='<%=request.getContextPath()%>/immuStudentList.do?teacherId=<%=teacherId%>'"/>
+						
 					</p>
 				</div>
 			</div>

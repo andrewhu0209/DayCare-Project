@@ -7,11 +7,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.Student;
+import entity.User;
 import util.DBUtils;
 
 public class StudentDAO {
-	public List<Student> findAll() throws Exception{
+	public void save(Student student) throws Exception {
+		Connection conn = null;
+		PreparedStatement stat = null;
+		try {
+			conn = DBUtils.getConn();
+			String sql = "insert into student values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			stat = conn.prepareStatement(sql);
+			
+			stat.setString(1, student.getName());
+			stat.setInt(2, student.getAge());
+			stat.setString(3, student.getParentsName());
+			stat.setString(4, student.getAddress());
+			stat.setString(5, student.getPhone());
+			stat.setInt(6, -1);
+			stat.setString(7, student.getEnrollDay());
+			stat.setString(8, student.getHib6());
+			stat.setString(9, student.getDtap6());
+			stat.setString(10, student.getDtap15());
+			stat.setString(11, student.getPolio6());
+			stat.setString(12, student.getPolio15());
+			stat.setString(13, student.getHepb6());
+			stat.setString(14, student.getMmr12());
+			stat.setString(15, student.getVar12());
+			stat.setString(16, student.getNextEnrollDay());
+			stat.setString(17, student.getEnrollStatus());
+
+			stat.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}finally {
+			DBUtils.close(conn, stat, null);
+		}
 		
+	}
+	public List<Student> findAll() throws Exception{	
 		List<Student> Students = new ArrayList<Student>();
 		Connection conn = null;
 		PreparedStatement stat = null;

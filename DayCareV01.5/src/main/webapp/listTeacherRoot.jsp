@@ -71,6 +71,7 @@
 					</table>
 					<p>
 						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
+						<input type="button" class="button" value="Regist New Student" onclick="location='<%=request.getContextPath()%>/addStudent.jsp'"/>
 					</p>
 				</div>
 			</div>

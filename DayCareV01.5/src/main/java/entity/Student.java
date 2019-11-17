@@ -1,18 +1,24 @@
 package entity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+
+import org.junit.Test;
 
 import dao.StudentDAO;
 
 public class Student {
-	private int studentId;
+	private Integer studentId;
 	private String name;
 	private int age;
 	private String parentsName;
 	private String address;
 	private String phone;
-	private int teacherId;
+	private Integer teacherId;
 	private String enrollDay;
 	private String nextEnrollDay;
 	private String enrollStatus;
@@ -24,6 +30,41 @@ public class Student {
 	private String hepb6;
 	private String mmr12;
 	private String var12;
+	
+	public Student() {
+		
+	}
+	
+	
+	public Student(int studentId, String name, int age, String parentsName, String address, String phone, int teacherId,
+			String enrollDay, String nextEnrollDay, String enrollStatus, String hib6, String dtap6, String dtap15,
+			String polio6, String polio15, String hepb6, String mmr12, String var12) throws ParseException {
+		super();
+		this.studentId = studentId;
+		this.name = name;
+		this.age = age;
+		this.parentsName = parentsName;
+		this.address = address;
+		this.phone = phone;
+		this.teacherId = teacherId;
+		this.enrollDay = enrollDay;
+		if(enrollDay!=null) {
+			this.nextEnrollDay = plusOneYear(enrollDay);
+		}
+		else {
+			this.nextEnrollDay = nextEnrollDay;
+		}
+		this.enrollStatus = enrollStatus;
+		this.hib6 = hib6;
+		this.dtap6 = dtap6;
+		this.dtap15 = dtap15;
+		this.polio6 = polio6;
+		this.polio15 = polio15;
+		this.hepb6 = hepb6;
+		this.mmr12 = mmr12;
+		this.var12 = var12;
+	}
+	
 	
 	public int getStudentId() {
 		return studentId;
@@ -166,6 +207,14 @@ public class Student {
 		  return f;
 		 }
 	
-	
+	public static String plusOneYear(String d) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = sdf.parse(d);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.YEAR, 1);
+		date = cal.getTime();
+		return sdf.format(date).toString();
+	}
 
 }
