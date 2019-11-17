@@ -10,6 +10,16 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
+<%
+	Object obj = session.getAttribute("teacherId");
+	if(obj == null){
+		response.sendRedirect("login.jsp");
+		return;
+	}else if((Integer)obj!= 0){
+		response.sendRedirect("login.jsp");
+		return;
+	}
+	%>
 	<div id="wrap">
 		<div id="top_content">
 			<div id="header">
@@ -138,7 +148,7 @@
 						
 					</table>
 					<p>
-						<input type="button" class="button" value="Back" onclick="location='<%=request.getContextPath()%>/teacherList.do'"/>
+						<input type="button" class="button" value="Back" onclick="{if(confirm('Are you sure to leave?'))location='<%=request.getContextPath()%>/teacherList.do'}"/>
 						<input type="submit" class="button" value="Confirm" onclick="return confirm('Do you confirm that all the data are correct?');"/>
 					</p>
 				</form>
