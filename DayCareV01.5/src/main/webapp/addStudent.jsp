@@ -24,7 +24,7 @@
 				</div>
 				<div id="topheader">
 					<h1 id="title">
-						<a href="#">Main</a>
+						<a href="#">DayCare Student Data</a>
 					</h1>
 				</div>
 				<div id="navigation"></div>
@@ -138,7 +138,8 @@
 						
 					</table>
 					<p>
-						<input type="submit" class="button" value="Confirm" />
+						<input type="button" class="button" value="Back" onclick="location='<%=request.getContextPath()%>/teacherList.do'"/>
+						<input type="submit" class="button" value="Confirm" onclick="return confirm('Do you confirm that all the data are correct?');"/>
 					</p>
 				</form>
 			</div>
