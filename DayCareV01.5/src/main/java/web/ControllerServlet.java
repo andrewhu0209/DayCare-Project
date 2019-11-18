@@ -42,8 +42,26 @@ public class ControllerServlet extends HttpServlet {
 			processImmuStudentNotYetList(request, response);
 		}else if("/add".equals(path)) {
 			processRegister(request,response);
+		}else if("/assignTeacher".equals(path)){
+			processAssignTeacher(request,response);
 		}
 
+	}
+
+	private void processAssignTeacher(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8"); // 對post有效
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		try {
+			Student.assignStu();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.println("We ecounter some problems! Please try again and check all foramt are correct! ");
+		}
+		response.sendRedirect("studentList.do?teacherId=0");
+		
 	}
 
 	private void processRegister(HttpServletRequest request, HttpServletResponse response) throws IOException {

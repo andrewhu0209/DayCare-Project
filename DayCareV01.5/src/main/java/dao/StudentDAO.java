@@ -11,6 +11,30 @@ import entity.User;
 import util.DBUtils;
 
 public class StudentDAO {
+	
+	public void updateTeacherId(Student student) throws Exception {
+		Connection conn = null;
+		PreparedStatement stat = null;
+		try {
+			conn = DBUtils.getConn();
+			String sql = "update student set teacherId = ? where studentId = ?";
+			stat = conn.prepareStatement(sql);
+			
+			stat.setInt(1, student.getTeacherId());
+			stat.setInt(2, student.getStudentId());
+
+			stat.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}finally {
+			DBUtils.close(conn, stat, null);
+		}
+		
+	}
+	
+	
+	
 	public void save(Student student) throws Exception {
 		Connection conn = null;
 		PreparedStatement stat = null;

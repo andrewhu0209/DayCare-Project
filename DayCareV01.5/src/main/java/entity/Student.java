@@ -5,11 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Test;
 
 import dao.StudentDAO;
+import dao.TeacherDAO;
 
 public class Student {
 	private Integer studentId;
@@ -216,5 +218,72 @@ public class Student {
 		date = cal.getTime();
 		return sdf.format(date).toString();
 	}
+	
+	public static void assignStu() throws Exception{
+		StudentDAO stuDao = new StudentDAO();
+		TeacherDAO teaDao = new TeacherDAO();
+		List<Student> stu = new LinkedList<Student>();
+		List<Teacher> tea = new LinkedList<Teacher>();
+		stu = stuDao.findAll();
+		tea = teaDao.findAll();
+				
+		for (Teacher teacher: tea) {
+			int capacity = teacher.getCapacity();
+			int teacherId = teacher.getTeacherId();
+			int grade = teacher.getGrade();
+			int maxCapacity = teacher.getMaxCapacity();
+			for (Student student : stu) {
+				int age = student.getAge();
+				
+				//提前判断老师的capacity是不是已经满了,若已满，直接break当前循环，检测下一个老师
+				if(capacity > teacher.getMaxCapacity()) {
+					break;
+				}
+				
+				//提前判断学生的teacherId是否为0，如果不为0，则跳出当前循环，检测下一个学生
+				if(student.getTeacherId() != 0) {
+					continue;
+				}
+				
+				//判断学生年龄，和应该分配的grade，已经老师的capacity
+				if((age > 6 && age <= 12) && (grade == 1 && capacity <= maxCapacity)) {
+					teacher.setCapacity(capacity++);
+					student.setTeacherId(teacherId);
+				}else if((age > 13 && age <= 24) && (grade == 2 && capacity <= maxCapacity)) {
+					teacher.setCapacity(capacity++);
+					student.setTeacherId(teacherId);
+				}else if((age > 25 && age <= 36) && (grade == 3 && capacity <= maxCapacity)) {
+					teacher.setCapacity(capacity++);
+					student.setTeacherId(teacherId);
+				}else if((age > 37 && age <= 48) && (grade == 4 && capacity <= maxCapacity)) {
+					teacher.setCapacity(capacity++);
+					student.setTeacherId(teacherId);
+				}else if((age > 49 && age <= 59) && (grade == 5 && capacity <= maxCapacity)) {
+					teacher.setCapacity(capacity++);
+					student.setTeacherId(teacherId);
+				}else if((age == 60) && (grade == 6 && capacity <= maxCapacity)) {
+					teacher.setCapacity(capacity++);
+					student.setTeacherId(teacherId);
+				}
+			}
+		}
+		
+		//將全部更新後的資料更新到數據庫
+		StudentDAO sDao = new StudentDAO();
+		TeacherDAO tDao = new TeacherDAO();
+		
+		
+		for(Student s : stu) {
+			sDao.updateTeacherId(s);
+			
+		}
+		for(Teacher t : tea) {
+			tDao.updateCapacity(t);
+
+		}
+	
+	}
+	
+	
 
 }
