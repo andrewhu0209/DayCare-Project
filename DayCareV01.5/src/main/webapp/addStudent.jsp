@@ -41,7 +41,7 @@
 			</div>
 			<div id="content">
 				<p id="whereami"></p>
-				<h1>add User info:</h1>
+				<h1>New Student information:</h1>
 
 				<form action="add.do" method="get">
 					<table cellpadding="0" cellspacing="0" border="0"

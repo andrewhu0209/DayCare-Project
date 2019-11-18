@@ -12,6 +12,24 @@ import util.DBUtils;
 
 public class StudentDAO {
 	
+	public void resetTeacherId(Student student) throws Exception {
+		Connection conn = null;
+		PreparedStatement stat = null;
+		try {
+			conn = DBUtils.getConn();
+			String sql = "update student set teacherId = 0 where studentId = ?";
+			stat = conn.prepareStatement(sql);
+			stat.setInt(1, student.getStudentId());
+			stat.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}finally {
+			DBUtils.close(conn, stat, null);
+		}
+		
+	}
+	
 	public void updateTeacherId(Student student) throws Exception {
 		Connection conn = null;
 		PreparedStatement stat = null;
@@ -48,7 +66,7 @@ public class StudentDAO {
 			stat.setString(3, student.getParentsName());
 			stat.setString(4, student.getAddress());
 			stat.setString(5, student.getPhone());
-			stat.setInt(6, -1);
+			stat.setInt(6, student.getTeacherId());
 			stat.setString(7, student.getEnrollDay());
 			stat.setString(8, student.getHib6());
 			stat.setString(9, student.getDtap6());

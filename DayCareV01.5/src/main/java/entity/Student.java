@@ -219,6 +219,15 @@ public class Student {
 		return sdf.format(date).toString();
 	}
 	
+	public static void resetAssignStu() throws Exception {
+		StudentDAO stuDao = new StudentDAO();
+		List<Student> students = new LinkedList<Student>();
+		students = stuDao.findAll();
+		for(Student s : students) {
+			stuDao.resetTeacherId(s);
+		}
+	}
+	
 	public static void assignStu() throws Exception{
 		StudentDAO stuDao = new StudentDAO();
 		TeacherDAO teaDao = new TeacherDAO();

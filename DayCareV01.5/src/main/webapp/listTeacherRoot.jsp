@@ -44,6 +44,9 @@
 							<td>
 								Teacher Name
 							</td>
+							<td>
+								Class Room
+							</td>
 						</tr>
 						<%
 							List<Teacher> teachers = (List<Teacher>) request.getAttribute("teachers");
@@ -59,13 +62,17 @@
 								
 								
 							</td>
+							<td>
+							<!-- 之後新增取得class room資訊 -->
+							Will be informed shortly
+							</td>
 						</tr>
 								<%
 							}
 						%>
 						<tr class="table_header">
-							<td  colspan="2">
-								<a href="<%=request.getContextPath()%>/studentList.do?teacherId=0"> All Student Data </a>			
+							<td  colspan="3">
+								<a href="<%=request.getContextPath()%>/studentList.do?teacherId=0" style="color: #73A822";> All Student Data </a>			
 							</td>
 					</tr>
 					</table>

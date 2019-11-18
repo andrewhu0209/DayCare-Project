@@ -44,8 +44,26 @@ public class ControllerServlet extends HttpServlet {
 			processRegister(request,response);
 		}else if("/assignTeacher".equals(path)){
 			processAssignTeacher(request,response);
+		}else if("/resetTeacherId".equals(path)) {
+			processResetTeacherId(request,response);
 		}
 
+	}
+
+	private void processResetTeacherId(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8"); // 對post有效
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		try {
+			Student.resetAssignStu();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.println("We ecounter some problems! Please try again and check all foramt are correct! ");
+		}
+		response.sendRedirect("studentList.do?teacherId=0");
+		
 	}
 
 	private void processAssignTeacher(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -109,11 +127,6 @@ public class ControllerServlet extends HttpServlet {
 	}
 
 
-
-
-
-
-
 	private void processImmuStudentNotYetList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 檢查session 沒有session重定向到login
 				HttpSession session = request.getSession();
@@ -158,11 +171,6 @@ public class ControllerServlet extends HttpServlet {
 	}
 
 
-
-
-
-
-
 	private void processImmuStudentList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 檢查session 沒有session重定向到login
 		HttpSession session = request.getSession();
@@ -204,8 +212,7 @@ public class ControllerServlet extends HttpServlet {
 
 	}
 
-	
-	
+
 	private void processStudentList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 處理表單中文參數值的問題
 		request.setCharacterEncoding("utf-8"); // 對post有效
@@ -244,8 +251,7 @@ public class ControllerServlet extends HttpServlet {
 
 	}
 
-	
-	
+
 	private void processTeacherList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 檢查session 沒有session重定向到login
 		HttpSession session = request.getSession();
@@ -292,8 +298,6 @@ public class ControllerServlet extends HttpServlet {
 
 	}
 
-	
-	
 	private void processLogin(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		request.setCharacterEncoding("utf-8"); // 對post有效

@@ -117,6 +117,7 @@
 						<input style="color:red;" type="button" class="button" value="Student didn't get Vaccine" onclick="location='<%=request.getContextPath()%>/immuStudentNotYetList.do?teacherId=<%=teacherId%>'"/>
 						<input type="button" class="button" value="Student Vaccine Infomation" onclick="location='<%=request.getContextPath()%>/immuStudentList.do?teacherId=<%=teacherId%>'"/>
 						<input type="button" class="button" value="Assign Teacher" onclick="location='<%=request.getContextPath()%>/assignTeacher.do'"/>
+						<input type="button" class="button" value="Reset Teacher" onclick="location='<%=request.getContextPath()%>/resetTeacherId.do'"/>
 					</p>
 				</div>
 			</div>
