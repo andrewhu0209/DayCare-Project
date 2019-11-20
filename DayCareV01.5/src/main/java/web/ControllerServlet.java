@@ -2,9 +2,9 @@ package web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,6 +19,7 @@ import dao.TeacherDAO;
 import dao.UserDAO;
 import entity.Student;
 import entity.Teacher;
+
 
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -46,8 +47,80 @@ public class ControllerServlet extends HttpServlet {
 			processAssignTeacher(request,response);
 		}else if("/resetTeacherId".equals(path)) {
 			processResetTeacherId(request,response);
+		}else if("/assignClass".equals(path)) {
+			processAssignClass(request,response);
+		}else if("/resetClassRoom".equals(path)) {
+			processResetClassRoom(request,response);
+		}else if("/sortAge".equals(path)) {
+			processSortAge(request,response);
 		}
 
+	}
+
+	private void processSortAge(HttpServletRequest request, HttpServletResponse response) throws IOException {
+				request.setCharacterEncoding("utf-8"); // 對post有效
+				response.setContentType("text/html;charset=utf-8");
+				PrintWriter out = response.getWriter();
+
+				Integer teacherId = Integer.parseInt(request.getParameter("teacherId"));
+
+				// 查詢出所有用戶的信息
+				StudentDAO dao = new StudentDAO();
+				try {
+					List<Student> students = dao.findAll();
+					// 判斷老師ID
+					if (teacherId != 0) {
+						students = Student.checkTeacherId(students, teacherId);
+					}
+					students.sort(new Comparator<Student>() {
+						@Override
+						public int compare(Student o1, Student o2) {
+							return o1.getAge() - o2.getAge();
+						}
+						
+					});				
+					request.setAttribute("students", students);
+					request.setAttribute("teacherId", teacherId);
+					RequestDispatcher rd = request.getRequestDispatcher("listStudent.jsp");
+					rd.forward(request, response);
+
+				} catch (Exception e) {
+					e.printStackTrace();
+					out.println("We encounter some problems. Please Try Agian!");
+				}
+		
+	}
+
+	private void processResetClassRoom(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8"); // 對post有效
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		try {
+			entity.Class.resetAssignClassRoom();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.println("We ecounter some problems! Please try again and check all foramt are correct! ");
+		}
+		response.sendRedirect("teacherList.do");
+		
+	}
+
+	private void processAssignClass(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8"); // 對post有效
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		try {
+			entity.Class.assignClass();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			out.println("We ecounter some problems! Please try again and check all foramt are correct! ");
+		}
+		response.sendRedirect("teacherList.do");
+		
 	}
 
 	private void processResetTeacherId(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -148,14 +221,7 @@ public class ControllerServlet extends HttpServlet {
 					List<Student> students = Student.getImmuFail();
 
 					if (teacherId != 0) {
-						List<Student> sTemp = new ArrayList<Student>();
-						for (int i = 0; i < students.size(); i++) {
-							Student s = students.get(i);
-							if (s.getTeacherId() == teacherId) {
-								sTemp.add(s);
-							}
-						}
-						students = sTemp;
+						students = Student.checkTeacherId(students, teacherId);
 					}
 					request.setAttribute("students", students);
 					request.setAttribute("teacherId", teacherId);
@@ -191,14 +257,7 @@ public class ControllerServlet extends HttpServlet {
 			List<Student> students = dao.findAll();
 			// 判斷老師ID
 			if (teacherId != 0) {
-				List<Student> sTemp = new ArrayList<Student>();
-				for (int i = 0; i < students.size(); i++) {
-					Student s = students.get(i);
-					if (s.getTeacherId() == teacherId) {
-						sTemp.add(s);
-					}
-				}
-				students = sTemp;
+				students = Student.checkTeacherId(students, teacherId);
 			}
 			request.setAttribute("students", students);
 			request.setAttribute("teacherId", teacherId);
@@ -227,24 +286,15 @@ public class ControllerServlet extends HttpServlet {
 			List<Student> students = dao.findAll();
 			// 判斷老師ID
 			if (teacherId != 0) {
-				List<Student> sTemp = new ArrayList<Student>();
-				for (int i = 0; i < students.size(); i++) {
-					Student s = students.get(i);
-					if (s.getTeacherId() == teacherId) {
-						sTemp.add(s);
-					}
-				}
-				students = sTemp;
-
+				students = Student.checkTeacherId(students, teacherId);
 			}
-
+			
 			request.setAttribute("students", students);
 			request.setAttribute("teacherId", teacherId);
 			RequestDispatcher rd = request.getRequestDispatcher("listStudent.jsp");
 			rd.forward(request, response);
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			out.println("We encounter some problems. Please Try Agian!");
 		}
@@ -325,7 +375,6 @@ public class ControllerServlet extends HttpServlet {
 				response.sendRedirect("teacherList.do");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			out.println("We encounter some problems. Please Try Agian!");
 		}
