@@ -12,6 +12,7 @@ import util.DBUtils;
 
 public class StudentDAO {
 	
+	
 	public void resetTeacherId(Student student) throws Exception {
 		Connection conn = null;
 		PreparedStatement stat = null;
