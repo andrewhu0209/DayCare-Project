@@ -8,12 +8,11 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.junit.Test;
 
 import dao.StudentDAO;
 import dao.TeacherDAO;
 
-public class Student {
+public class Student extends Person{
 	private Integer studentId;
 	private String name;
 	private int age;

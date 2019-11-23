@@ -18,16 +18,18 @@ import dao.StudentDAO;
 import dao.TeacherDAO;
 import dao.UserDAO;
 import entity.Student;
+import entity.StudentFactory;
 import entity.Teacher;
 
 
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	StudentFactory studentFactory = new StudentFactory();
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String uri = request.getRequestURI();
 		String path = uri.substring(uri.lastIndexOf("/"), uri.lastIndexOf("."));
+		 
 		//System.out.println("path:" + path);
 
 		if ("/login".equals(path)) {
@@ -180,6 +182,7 @@ public class ControllerServlet extends HttpServlet {
 
 		Student newStudent = null;
 		try {
+			
 			newStudent = new Student(studentId, name, age, parentsName, address, phone, teacherId, enrollDay,
 					nextEnrollDay, enrollStatus, hib6, dtap6, dtap15, polio6, polio15, hepb6, mmr12, var12);
 
