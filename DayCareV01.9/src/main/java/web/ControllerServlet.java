@@ -104,7 +104,7 @@ public class ControllerServlet extends HttpServlet {
 			student.setHepb6(hepb6);
 			student.setMmr12(mmr12);
 			student.setVar12(var12);
-			System.out.println(student);
+			
 			//update student info
 			dao.updateVaccine(student);
 			
@@ -132,13 +132,12 @@ public class ControllerServlet extends HttpServlet {
 				response.setContentType("text/html;charset=utf-8");
 				PrintWriter out = response.getWriter();
 				int studentId = Integer.parseInt(request.getParameter("studentId"));
-				System.out.println("studentID:  "+studentId);
+				
 				StudentDAO dao = new StudentDAO();
 				try {
 					List<Student> students = dao.findAll();
 					List<Student> oneStudentList = students.stream().filter(x -> x.getStudentId() == studentId).collect(Collectors.toList());
 					Student student = oneStudentList.get(0);
-					System.out.println(student);
 					request.setAttribute("student", student);
 					//轉發到編輯疫苗的頁面
 					RequestDispatcher rd = request.getRequestDispatcher("EditVaccinesInfo.jsp");

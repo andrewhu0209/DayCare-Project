@@ -69,7 +69,7 @@
 			<input type="checkbox" id="drop" />
 			<ul class="menu mt-md-2 ml-auto">
 				<li class="mr-lg-4 mr-2 active"><a href="index.do">Home</a></li>
-				<li class="mr-lg-4 mr-2"><a href="about.html">About Us</a></li>
+				<li class="mr-lg-4 mr-2"><a href="login.do">Log out</a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -84,7 +84,7 @@
 			<div class="slider-info">
 				<div class="agileinfo-logo mt-lg-5">
 					<h2>DayCare <br> Center</h2>
-					<a href="contact.html">Contact Us</a>
+					<a href="index.do">Contact Us</a>
 				</div>
 			</div>
 		</div>
@@ -174,9 +174,15 @@
 							<td>
 								Polio15
 							</td>
-							
+							<%
+								if(teacherId ==0){
+									%>
+									<td>Operation</td>
+									<%
+								}
+							%>
 						
-							<td>Operation</td>
+							
 							
 						</tr>
 						<%
@@ -220,9 +226,14 @@
 							<td>
 								<%=student.getPolio15()%>
 							</td>
-							
-							
-							<td><a href="<%=request.getContextPath()%>/edit.do?studentId=<%=student.getStudentId()%>">Edit</a></td>
+							<%
+								if(teacherId ==0){
+									%>
+									<td><a href="<%=request.getContextPath()%>/edit.do?studentId=<%=student.getStudentId()%>">Edit</a></td>
+									<%
+								}
+							%>
+										
 						</tr>
 								<%
 							}
@@ -231,7 +242,10 @@
 					</table>
 					<p>
 						
-						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
+						
+						<input style="color: red;" type="button" class="button"
+						value="Student didn't get Vaccine"
+						onclick="location='<%=request.getContextPath()%>/immuStudentNotYetList.do?teacherId=<%=teacherId%>'" />
 					</p>
 			
 			
