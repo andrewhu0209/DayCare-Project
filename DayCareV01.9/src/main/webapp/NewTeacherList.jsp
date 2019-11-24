@@ -178,9 +178,15 @@
 					</table>
 					<p>
 						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
-						<input type="button" class="button" value="Regist New Student" onclick="location='<%=request.getContextPath()%>/NewAddStudent.jsp'"/>
-						<input type="button" class="button" value="Assign Class" onclick="location='<%=request.getContextPath()%>/assignClass.do'"/>
+						<%
+						if (teacherId == 0) {
+					%>
+					<input type="button" class="button" value="Assign Class" onclick="location='<%=request.getContextPath()%>/assignClass.do'"/>
 						<input type="button" class="button" value="Reset Class Room" onclick="location='<%=request.getContextPath()%>/resetClassRoom.do'"/>
+					<%
+						}
+					%>
+						
 					</p>
 			
 			

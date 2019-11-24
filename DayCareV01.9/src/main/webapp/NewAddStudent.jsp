@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
 	response.sendRedirect("login.jsp");
 	return;
 }else if((Integer)obj!= 0){
-response.sendRedirect("login.jsp");
+response.sendRedirect("index.jsp");
 return;
 }
 %>

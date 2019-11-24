@@ -231,7 +231,7 @@
 					</table>
 					<p>
 						
-						<input type="button" class="button" value="Back" onclick="location='<%=request.getContextPath()%>/studentList.do?teacherId=<%=teacherId%>'"/>
+						<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
 					</p>
 			
 			

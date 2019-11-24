@@ -189,8 +189,7 @@
 
 				</table>
 				<p>
-					<input type="button" class="button" value="Back"
-						onclick="location='<%=request.getContextPath()%>/teacherList.do'" />
+					<input type="button" class="button" value="Back To Login" onclick="location='login.jsp'"/>
 					<input style="color: red;" type="button" class="button"
 						value="Student didn't get Vaccine"
 						onclick="location='<%=request.getContextPath()%>/immuStudentNotYetList.do?teacherId=<%=teacherId%>'" />
@@ -207,8 +206,7 @@
 					<%
 						}
 					%>
-					<input type="button" class="button" value="Age Graph"
-						onclick="location='<%=request.getContextPath()%>/ageGraph.do'" />
+					
 
 
 				</p>
