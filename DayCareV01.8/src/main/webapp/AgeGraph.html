@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Student Age Distribution</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+    
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:600px; margin: 0 auto 0 auto"></div>
+    <script type="text/javascript">
+ // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    option = {
+    	    title : {
+    	        text: 'Student Age Distribution',
+    	        subtext: '6-60 Month',
+    	        x:'center'
+    	    },
+    	    tooltip : {
+    	        trigger: 'item',
+    	        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    	    },
+    	    legend: {
+    	        orient: 'vertical',
+    	        left: 'left',
+    	        data: ['6-12','13-24','25-35','36-47','48-59','60-65']
+    	    },
+    	    series : [
+    	        {
+    	            name: '访问来源',
+    	            type: 'pie',
+    	            radius : '55%',
+    	            center: ['50%', '60%'],
+    	            data:[
+    	            	/* 人數 */
+    	                {value:12, name:'6-12'},
+    	                {value:10, name:'13-24'},
+    	                {value:8, name:'25-35'},
+    	                {value:6, name:'36-47'},
+    	                {value:5, name:'48-59'},
+    	                {value:2, name:'60-65'}
+    	            ],
+    	            itemStyle: {
+    	                emphasis: {
+    	                    shadowBlur: 10,
+    	                    shadowOffsetX: 0,
+    	                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+    	                }
+    	            }
+    	        }
+    	    ]
+    	};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
