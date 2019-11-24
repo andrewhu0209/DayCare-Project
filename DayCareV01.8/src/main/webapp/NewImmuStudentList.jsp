@@ -149,29 +149,34 @@
 								Student Age
 							</td>
 							<td>
-								Hib6
-							</td>
-							<td>
 								Dtap6
 							</td>
 							<td>
-								Dtap15
+								Hib6
 							</td>
+							
 							<td>
 								Polio6
 							</td>
 							<td>
-								Polio15
-							</td>
-							<td>
 								Hepb6
 							</td>
-							<td>
+								<td>
 								Mmr12
 							</td>
 							<td>
 								Var12
 							</td>
+							<td>
+								Dtap15
+							</td>
+							
+							<td>
+								Polio15
+							</td>
+							
+						
+							<td>Operation</td>
 							
 						</tr>
 						<%
@@ -190,19 +195,14 @@
 								<%=student.getAge()%>
 							</td>
 							<td>
-								<%=student.getHib6()%>
-							</td>
-							<td>
 								<%=student.getDtap6()%>
 							</td>
 							<td>
-								<%=student.getDtap15()%>
+								<%=student.getHib6()%>
 							</td>
+							
 							<td>
 								<%=student.getPolio6()%>
-							</td>
-							<td>
-								<%=student.getPolio15()%>
 							</td>
 							<td>
 								<%=student.getHepb6()%>
@@ -213,6 +213,16 @@
 							<td>
 								<%=student.getVar12()%>
 							</td>
+							<td>
+								<%=student.getDtap15()%>
+							</td>
+							
+							<td>
+								<%=student.getPolio15()%>
+							</td>
+							
+							
+							<td><a href="<%=request.getContextPath()%>/edit.do?studentId=<%=student.getStudentId()%>">Edit</a></td>
 						</tr>
 								<%
 							}

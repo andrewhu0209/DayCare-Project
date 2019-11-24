@@ -99,10 +99,20 @@ pageEncoding="UTF-8"%>
 						<span><i class="fa fa-eyedropper" aria-hidden="true">&ensp;Dtap6&nbsp;</i></span>
 						<tr>
 						<td>
-						<% boolean check = student.getDtap6()== "y";%>
-							<input type="radio"  name="dtap6" disable="<%=check%>" value="y" checked="<%=check%>"/>
+						<% 
+							String c1="";
+							String c2="";
+							if(student.getDtap6().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="dtap6"  value="y" <%=c1%>/>
 							YES   
-							<input type="radio"  name="dtap6" value="n" checked="<%=check%>"/>
+							<input type="radio"  name="dtap6" value="n" <%=c2%>/>
 							NO
 							
 							</td>
@@ -112,10 +122,20 @@ pageEncoding="UTF-8"%>
 						<span><i class="fa fa-eyedropper" aria-hidden="true">&ensp;Hib6&ensp;&ensp;</i></span>
 						<tr>
 						<td>
-							<% boolean check1 = student.getHib6()== "y";%>
-							<input type="radio"  name="hib6" value="y" disable="<%=check%>" checked="<%=check1%>" />
+							<% 
+							c1="";
+							c2="";
+							if(student.getHib6().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="hib6" value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="hib6" value="n" checked="<%=check1%>" />
+							<input type="radio"  name="hib6" value="n"  <%=c2%>/>
 							NO
 							</td>
 						</tr>
@@ -124,10 +144,20 @@ pageEncoding="UTF-8"%>
 						<span><i class="fa fa-eyedropper" aria-hidden="true">&ensp;Polio6&nbsp;</i></span>
 						<tr>
 						<td>
-							<% boolean check2 = student.getPolio6()== "y";%>
-							<input type="radio"  name="polio6"  value="y" disable="<%=check%>" checked=" <%=check2%>"/>
+							<% 
+							c1="";
+							c2="";
+							if(student.getPolio6().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="polio6"  value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="polio6"  value="n" checked="<%=check2%>"/>
+							<input type="radio"  name="polio6"  value="n" <%=c2%>/>
 							NO
 							</td>
 						</tr>
@@ -136,10 +166,20 @@ pageEncoding="UTF-8"%>
 						<span><i class="fa fa-eyedropper" aria-hidden="true">&ensp;Hepb6&nbsp;</i></span>
 						<tr>
 						<td>
-							<% boolean check3 = student.getHepb6()== "y";%>
-							<input type="radio"  name="hepb6" value="y" disable="<%=check%>" checked="<%=check3%>"/>
+							<% 
+							c1="";
+							c2="";
+							if(student.getHepb6().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="hepb6" value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="hepb6" value="n" checked="<%=check3%>" />
+							<input type="radio"  name="hepb6" value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -148,10 +188,21 @@ pageEncoding="UTF-8"%>
 						<span><i class="fa fa-eyedropper" aria-hidden="true">&ensp;Mmr12&nbsp;</i></span>
 						<tr>
 						<td>
-							<% boolean check4 = student.getMmr12()== "y";%>
-							<input type="radio"  name="mmr12" value="y" disable="<%=check%>" checked="<%=check4%>"/>
+							
+							<% 
+							c1="";
+							c2="";
+							if(student.getMmr12().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="mmr12" value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="mmr12" value="n" checked="<%=check4%>" />
+							<input type="radio"  name="mmr12" value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -161,10 +212,21 @@ pageEncoding="UTF-8"%>
 						<span><i class="fa fa-eyedropper" aria-hidden="true">&ensp;Var12&ensp;&nbsp;</i></span>
 						<tr>
 						<td>
-							<% boolean check5 = student.getVar12()== "y";%>
-							<input type="radio"  name="var12"  value="y" disable="<%=check%>" checked="<%=check5%>"/>
+						
+							<% 
+							c1="";
+							c2="";
+							if(student.getVar12().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="var12"  value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="var12"  value="n" checked="<%=check5%>" />
+							<input type="radio"  name="var12"  value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -173,10 +235,21 @@ pageEncoding="UTF-8"%>
 						<span><i class="fa fa-eyedropper" aria-hidden="true">&ensp;Dtap15</i></span>
 						<tr>
 						<td>
-							<% boolean check6 = student.getDtap15()== "y";%>
-							<input type="radio"  name="dtap15" value="y" disable="<%=check%>" checked="<%=check6%>"/>
+							
+							<% 
+							c1="";
+							c2="";
+							if(student.getDtap15().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="dtap15" value="y" " <%=c1%>/>
 							YES   
-							<input type="radio"  name="dtap15" value="n" checked="<%=check6%>" />
+							<input type="radio"  name="dtap15" value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -186,9 +259,20 @@ pageEncoding="UTF-8"%>
 						<tr>
 						<td>
 							<% boolean check7 = student.getPolio15()== "y";%>
-							<input type="radio"  name="polio15"  value="y" disable="<%=check%>" checked="<%=check7%>"/>
+							<% 
+							c1="";
+							c2="";
+							if(student.getPolio15().equals("y")){
+								c1 = "checked = 'ckecked'";
+							}
+							else{
+								c2 = "checked = 'ckecked'";
+							}
+							
+						%>
+							<input type="radio"  name="polio15"  value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="polio15"  value="n" checked="<%=check7%>" />
+							<input type="radio"  name="polio15"  value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>

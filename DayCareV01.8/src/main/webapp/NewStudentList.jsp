@@ -162,7 +162,7 @@
 						<td>Teacher ID</td>
 						<td>Enrollment Day</td>
 						<td>Next Enrollment Day</td>
-						<td>Operation</td>
+						
 
 					</tr>
 					<%
@@ -180,7 +180,7 @@
 						<td><%=student.getTeacherId()%></td>
 						<td><%=student.getEnrollDay()%></td>
 						<td><%=student.getNextEnrollDay()%></td>
-						<td><a href="<%=request.getContextPath()%>/edit.do?studentId=<%=student.getStudentId()%>">Edit</a></td>
+						
 
 					</tr>
 					<%
