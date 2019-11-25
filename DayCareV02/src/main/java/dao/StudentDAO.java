@@ -18,7 +18,7 @@ public class StudentDAO {
 		  try {
 		   conn = DBUtils.getConn();
 		   //String v ="";
-		   String sql = "update student set Hib6 = ?, Dtap6 = ?, Dtap15 = ?, Polio6 = ?, Polio15 = ?, Hepb6 = ?, Mmr12 = ?, Var12 = ?   where studentId = ?";
+		   String sql = "update student set Hib6 = ?, Dtap6 = ?, Dtap15 = ?, Polio6 = ?, Polio15 = ?, Hepb6 = ?, Mmr12 = ?, Var12 = ? , enrollStatus = ?  where studentId = ?";
 		   stat = conn.prepareStatement(sql);
 		   
 		   stat.setString(1, student.getHib6());
@@ -29,7 +29,8 @@ public class StudentDAO {
 		   stat.setString(6, student.getHepb6());
 		   stat.setString(7, student.getMmr12());
 		   stat.setString(8, student.getVar12());
-		   stat.setInt(9, student.getStudentId());
+		   stat.setString(9, student.getEnrollStatus());
+		   stat.setInt(10, student.getStudentId());
 		   
 		   stat.executeUpdate();
 		   System.out.println(sql);

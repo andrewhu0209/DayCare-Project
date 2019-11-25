@@ -59,10 +59,10 @@
 					class="col-lg-3 offset-lg-7 col-md-5 offset-md-3 col-sm-6 col-7 offset-sm-2 top-grid">
 					<span class="fa ml-3 fa-envelope-open-o"></span>
 					<p class="">
-						<a href="daycare@csye6200.com">daycare@csye6200.com</a> <span
+						<a href="index.do">daycare@csye6200.com</a> <span
 							class="block">Contact Support</span>
 					</p>
-				</div>
+				</div>r
 				<div class="col-lg-2 col-md-4 col-sm-4 col-5 top-grid pl-0">
 					<span class="fa ml-3 fa-phone"></span>
 					<p class="">
@@ -75,7 +75,7 @@
 			<nav class="pt-2">
 				<div id="logo">
 					<h1>
-						<a href="index.html"><span class="fa fa-ship"></span> DayCare</a>
+						<a href="index.do"><span class="fa fa-ship"></span>Serendipia DayCare</a>
 					</h1>
 				</div>
 				<label for="drop" class="toggle">Menu</label> <input type="checkbox"
@@ -96,7 +96,7 @@
 		<div class="banner-text">
 			<div class="slider-info">
 				<div class="agileinfo-logo mt-lg-5">
-					<h2>DayCare <br> Center</h2>
+					<h2>Best DayCare<br>In NEU</h2>
 					<a href="index.do">Contact Us</a>
 				</div>
 			</div>
@@ -162,6 +162,7 @@
 						<td>Teacher ID</td>
 						<td>Enrollment Day</td>
 						<td>Next Enrollment Day</td>
+						<td>Enroll Status</td>
 						
 
 					</tr>
@@ -180,6 +181,7 @@
 						<td><%=student.getTeacherId()%></td>
 						<td><%=student.getEnrollDay()%></td>
 						<td><%=student.getNextEnrollDay()%></td>
+						<td><%=student.getEnrollStatus()%></td>
 						
 
 					</tr>

@@ -41,8 +41,8 @@
                     <div class="form-group">
                       <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Enter user name" name="username">
 							<% String msg = (String)request.getAttribute("msg"); %>
-							<span style="color: red; font-size: 20px"> 
-							<%= msg == null ? "" : msg%> 
+							<span style="color: red; font-size: 20px"> ${msg}</span>
+							
 						</div>
                     <div class="form-group">
                       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd">

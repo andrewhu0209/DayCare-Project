@@ -30,8 +30,6 @@ public class ControllerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String uri = request.getRequestURI();
 		String path = uri.substring(uri.lastIndexOf("/"), uri.lastIndexOf("."));
-		 
-		//System.out.println("path:" + path);
 
 		if ("/login".equals(path)) {
 			// 處理登入請求
@@ -90,6 +88,8 @@ public class ControllerServlet extends HttpServlet {
 		String hepb6 = request.getParameter("hepb6");
 		String mmr12 = request.getParameter("mmr12");
 		String var12 = request.getParameter("var12");
+		String enrollStatus = request.getParameter("enrollStatus");
+		
 		StudentDAO dao = new StudentDAO();
 		try {
 			List<Student> students = dao.findAll();
@@ -104,6 +104,7 @@ public class ControllerServlet extends HttpServlet {
 			student.setHepb6(hepb6);
 			student.setMmr12(mmr12);
 			student.setVar12(var12);
+			student.setEnrollStatus(enrollStatus);
 			
 			//update student info
 			dao.updateVaccine(student);

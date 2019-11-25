@@ -102,20 +102,17 @@ pageEncoding="UTF-8"%>
 						<% 
 							String c1="";
 							String c2="";
-							String c3="";
 							if(student.getDtap6().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
-								
 							}
 							
 						%>
 							<input type="radio"  name="dtap6"  value="y" <%=c1%>/>
 							YES   
-							<input type="radio"  name="dtap6" value="n" <%=c2+c3%> />
+							<input type="radio"  name="dtap6" value="n" <%=c2%>/>
 							NO
 							
 							</td>
@@ -128,10 +125,8 @@ pageEncoding="UTF-8"%>
 							<% 
 							c1="";
 							c2="";
-							c3="";
 							if(student.getHib6().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
@@ -140,7 +135,7 @@ pageEncoding="UTF-8"%>
 						%>
 							<input type="radio"  name="hib6" value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="hib6" value="n"  <%=c2+c3%> />
+							<input type="radio"  name="hib6" value="n"  <%=c2%>/>
 							NO
 							</td>
 						</tr>
@@ -152,21 +147,17 @@ pageEncoding="UTF-8"%>
 							<% 
 							c1="";
 							c2="";
-							c3="";
-					
 							if(student.getPolio6().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
-								
 							}
 							
 						%>
 							<input type="radio"  name="polio6"  value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="polio6"  value="n" <%=c2+c3%> />
+							<input type="radio"  name="polio6"  value="n" <%=c2%>/>
 							NO
 							</td>
 						</tr>
@@ -178,20 +169,17 @@ pageEncoding="UTF-8"%>
 							<% 
 							c1="";
 							c2="";
-							c3="";
 							if(student.getHepb6().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
-								
 							}
 							
 						%>
 							<input type="radio"  name="hepb6" value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="hepb6" value="n" <%=c2+c3%> />
+							<input type="radio"  name="hepb6" value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -204,20 +192,17 @@ pageEncoding="UTF-8"%>
 							<% 
 							c1="";
 							c2="";
-							c3="";
 							if(student.getMmr12().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
-								
 							}
 							
 						%>
 							<input type="radio"  name="mmr12" value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="mmr12" value="n" <%=c2+c3%> />
+							<input type="radio"  name="mmr12" value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -231,10 +216,8 @@ pageEncoding="UTF-8"%>
 							<% 
 							c1="";
 							c2="";
-							c3="";
 							if(student.getVar12().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
@@ -243,7 +226,7 @@ pageEncoding="UTF-8"%>
 						%>
 							<input type="radio"  name="var12"  value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="var12"  value="n" <%=c2+c3%> />
+							<input type="radio"  name="var12"  value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -256,20 +239,17 @@ pageEncoding="UTF-8"%>
 							<% 
 							c1="";
 							c2="";
-							c3="";
 							if(student.getDtap15().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
-								
 							}
 							
 						%>
-							<input type="radio"  name="dtap15" value="y" <%=c1%>/>
+							<input type="radio"  name="dtap15" value="y" " <%=c1%>/>
 							YES   
-							<input type="radio"  name="dtap15" value="n" <%=c2+c3%> />
+							<input type="radio"  name="dtap15" value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>
@@ -282,20 +262,17 @@ pageEncoding="UTF-8"%>
 							<% 
 							c1="";
 							c2="";
-							c3="";
 							if(student.getPolio15().equals("y")){
 								c1 = "checked = 'ckecked'";
-								c3 =" disabled = 'disabled'";
 							}
 							else{
 								c2 = "checked = 'ckecked'";
-								
 							}
 							
 						%>
 							<input type="radio"  name="polio15"  value="y"  <%=c1%>/>
 							YES   
-							<input type="radio"  name="polio15"  value="n" <%=c2+c3%> />
+							<input type="radio"  name="polio15"  value="n" <%=c2%> />
 							NO
 							</td>
 						</tr>

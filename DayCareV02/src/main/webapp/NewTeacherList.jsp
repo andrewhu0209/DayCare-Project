@@ -63,7 +63,7 @@
 		<!-- nav -->
 		<nav class="pt-2">
 			<div id="logo">
-				<h1> <a href="index.html"><span class="fa fa-ship"></span> DayCare</a></h1>
+				<h1> <a href="index.html"><span class="fa fa-ship"></span>Serendipia DayCare</a></h1>
 			</div>
 			<label for="drop" class="toggle">Menu</label>
 			<input type="checkbox" id="drop" />
@@ -83,7 +83,7 @@
 		<div class="banner-text">
 			<div class="slider-info">
 				<div class="agileinfo-logo mt-lg-5">
-					<h2>DayCare <br> Center</h2>
+					<h2>Best DayCare<br>In NEU</h2>
 					<a href="index.do">Contact Us</a>
 				</div>
 			</div>
@@ -149,6 +149,9 @@
 							Teacher Capacity
 							</td>
 							<td>
+								Maximum Teacher Capacity
+							</td>
+							<td>
 								Class Room
 							</td>				
 						</tr>
@@ -166,6 +169,9 @@
 							</td>
 							<td>
 								<%=teacher.getCapacity() %>
+							</td>
+							<td>
+								<%=teacher.getMaxCapacity() %>
 							</td>
 							<td>
 								<%=teacher.getClassRoom()%>
